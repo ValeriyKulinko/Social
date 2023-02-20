@@ -10,12 +10,13 @@ import Settings from './Copmponents/Settings/Settings';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from './Copmponents/Sidebar/Sidebar';
 
+
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar />
+        {/* <Navbar /> */}
         <Sidebar state={props.state.sidebar} />
         <div className='app-wrapper-content'>
           <Routes>
