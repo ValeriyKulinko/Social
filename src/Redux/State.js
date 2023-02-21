@@ -8,7 +8,8 @@ let state = {
             { id: 2, message: 'Hello!', likeCount: 104 },
             { id: 3, message: 'How are you?', likeCount: 25 },
             { id: 4, message: 'Blabla', likeCount: 802 }
-        ]
+        ],
+        newPostText: 'add your post'
     },
 
     dialogsPage: {
@@ -27,7 +28,8 @@ let state = {
             { id: 4, message: 'How are you' },
             { id: 5, message: 'Wazzap' },
             { id: 6, message: 'Ho-ho' }
-        ]
+        ],
+        newMessageText: 'put here your message'
     },
     sidebar: {
         names: [
@@ -37,14 +39,33 @@ let state = {
         ]
     }
 }
-export let addPost = (postMessage) => {
+// Add and update posts
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likeCount: 0
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntireTree(state);
 }
-
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+//Add and update messages
+export let addMessage = () => {
+    let newMessage = {
+        id: 7,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+export let updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
+    rerenderEntireTree(state);
+}
 export default state;
