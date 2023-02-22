@@ -71,6 +71,6 @@ export const updateNewMessageText = (newMessage) => {
     rerenderEntireTree(state);
 }
 export const subscribe = (observer) => {
-    rerenderEntireTree(observer);
+    rerenderEntireTree = observer;
 }
 export default state;
